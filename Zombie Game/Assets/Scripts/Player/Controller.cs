@@ -32,8 +32,8 @@ public class Controller : MonoBehaviour
 
     void Move()
     {
-        float moveX = Input.GetAxis("Horizontal"); 
-        float moveZ = Input.GetAxis("Vertical");  
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = 1;
 
         Vector3 moveDirection = transform.right * moveX + transform.forward * moveZ;
         moveDirection.y = 0;

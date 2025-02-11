@@ -8,25 +8,31 @@ public class ZombieMovement : MonoBehaviour
     public Rigidbody body;
     public GameObject player;
     public float speed = 3f;
+    float floater = Time.deltaTime;
     public Vector3 SeekDistance;//zombinin alaný
-    void FixedUpdate()
+    void Update()
     {
         Chase();
+        CheckIfBehindPlayer();
     }
 
     void Chase()
     {
-        Vector3 distance = (body.transform.position - player.transform.position).normalized;//oyuncu zombinin bölgesine giriyor mu kontrol için
-        if (player.transform.position.z < body.transform.position.z && (distance.z<=SeekDistance.z && distance.x <= SeekDistance.x))
+        Vector3 distance = new Vector3(Mathf.Abs(body.transform.position.x - player.transform.position.x), 0, Mathf.Abs(body.transform.position.z - player.transform.position.z));
+
+        if (distance.z <= SeekDistance.z && distance.x <= SeekDistance.x)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized; // zombinin oyuncuya doðru olan yönü
-            Vector3 targetPosition = transform.position + direction * speed * Time.fixedDeltaTime;     // hedef pozisyon
+            Vector3 direction = (player.transform.position - body.position).normalized;  // Yönü normalize et
+            Vector3 newPosition = body.position + direction * speed * Time.deltaTime;   // Sabit hýzla ilerle
+            body.MovePosition(newPosition);
 
-            body.MovePosition(Vector3.Lerp(transform.position, targetPosition, 0.5f));    // Rigidbody ile yumuþak hareket saðla
-
-            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));  // Zombinin yönünü oyuncuya çevirme kodu
+            Vector3 lookDirection = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            transform.LookAt(lookDirection);
         }
-        else
+    }
+    void CheckIfBehindPlayer()
+    {
+        if (body.position.z < player.transform.position.z )  // Oyuncunun arkasýnda kalma kontrolü
         {
             Destroy(gameObject);
         }

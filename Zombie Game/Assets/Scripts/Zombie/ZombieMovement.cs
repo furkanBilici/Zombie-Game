@@ -8,7 +8,6 @@ public class ZombieMovement : MonoBehaviour
     public Rigidbody body;
     public GameObject player;
     public float speed = 3f;
-    float floater = Time.deltaTime;
     public Vector3 SeekDistance;//zombinin alaný
     void Update()
     {

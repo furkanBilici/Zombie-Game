@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+    public float speed;
     public Rigidbody body;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float crouchSpeed = 2.5f;
     public Transform playerCamera;
 
-    private bool isGrounded;
+    public bool isGrounded;
     private float originalHeight;
     private float crouchHeight;
+    public bool stopPlayer;
 
     void Start()
     {
+        stopPlayer = false;
         if (body == null)
             body = GetComponent<Rigidbody>();
         body.freezeRotation = true;
@@ -25,9 +29,13 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Jump();
-        Crouch();
+        if (!stopPlayer)
+        {
+            Move();
+            Jump();
+            Crouch();
+        }
+        StopPlayer();
     }
 
     void Move()
@@ -37,7 +45,7 @@ public class Controller : MonoBehaviour
 
         Vector3 moveDirection = transform.right * moveX + transform.forward * moveZ;
         moveDirection.y = 0;
-        float speed;
+        
         if (Input.GetKey(KeyCode.LeftControl))
         {
             speed = crouchSpeed;
@@ -70,7 +78,16 @@ public class Controller : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z);
         }
     }
-
+    void StopPlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if (stopPlayer == true) 
+            { stopPlayer = false; }
+            else if (stopPlayer == false)
+            { stopPlayer = true; }
+        }
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))

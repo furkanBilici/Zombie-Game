@@ -6,6 +6,13 @@ public class Shoot : MonoBehaviour
 {
     public GameObject killerArea;
     public bool isGunCold;
+
+    public GameObject flame;
+    public GameObject one;
+    public GameObject two;
+    public GameObject three;
+    public GameObject four;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,20 +26,49 @@ public class Shoot : MonoBehaviour
     }
     void ShootGun()
     {
-        if (Input.GetKeyUp(KeyCode.F) && isGunCold)
+        if (Input.GetKeyUp(KeyCode.Mouse0) && isGunCold)
         {
             killerArea.SetActive(true);
+           
+           
             Invoke("KillerAreaOff",0.1f);
-            Invoke("WaitForGunGetCold", 1f);
-            isGunCold=false;
+            Invoke("WaitForGunGetCold", 1f); 
+            flame.SetActive(true);
+            isGunCold=false; StartCoroutine(ActivateObjects());
         }
     }
+    IEnumerator ActivateObjects()
+    {
+        yield return new WaitForSeconds(0.02f);
+        one.SetActive(false);
+
+        yield return new WaitForSeconds(0.02f);
+        two.SetActive(false);
+
+        yield return new WaitForSeconds(0.02f);
+        three.SetActive(false);
+
+        yield return new WaitForSeconds(0.02f);
+        four.SetActive(false); // 4. obje kapanýyor
+
+        yield return new WaitForSeconds(0.01f);
+        flame.SetActive(false); // Flame kapanýyor
+
+        // 4 obje tekrar açýlýyor
+        one.SetActive(true);
+        two.SetActive(true);
+        three.SetActive(true);
+        four.SetActive(true);
+    }
+
     void KillerAreaOff()
     {
+        
         killerArea.SetActive(false);
     }
     void WaitForGunGetCold()
     {
         isGunCold=true;
     }
+
 }

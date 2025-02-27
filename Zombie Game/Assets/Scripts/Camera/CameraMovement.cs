@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public Controller controller;
+    public Shoot shoot;
     public float swayAmountX = 0.1f; // Kameranýn saða-sola hareket mesafesi
     public float swayAmountY = 0.05f; // Kameranýn yukarý-aþaðý hareket mesafesi
     public float swaySpeed = 3f;     // Hareketin hýzý
@@ -30,6 +31,10 @@ public class CameraMovement : MonoBehaviour
         else
         {
             ResetCameraPosition();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0)&&shoot.isGunCold)
+        {
+            StartCoroutine(CameraShake(0.1f, 0.6f));
         }
     }
 
@@ -74,12 +79,31 @@ public class CameraMovement : MonoBehaviour
             transform.localPosition = originalPosition + new Vector3(swayX, swayY, 0);
         }
     }
+    IEnumerator CameraShake(float duration, float magnitude)
+    {
+        Vector3 originalCamPosition = transform.localPosition;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            float offsetX = Random.Range(-1f, 1f) * magnitude;
+            float offsetY = Random.Range(-1f, 1f) * magnitude;
+
+            transform.localPosition = originalCamPosition + new Vector3(offsetX, offsetY, 0);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localPosition = originalCamPosition;
+    }
 
     void JumpMovement()
     {
         if (!controller.isGrounded)
         {
             // Zýplarken yukarý-aþaðý hareket (Cos ile yukarý-aþaðý sarsýntý efekti)
+            StartCoroutine(CameraShake(0.1f, 0.05f)); // Kýsa ama hafif sarsýntý
             float jumpSwayY = Mathf.Cos(Time.time * swaySpeed) * (swayAmountY * 2f);
             transform.localPosition = originalPosition + new Vector3(0, jumpSwayY, 0);
         }

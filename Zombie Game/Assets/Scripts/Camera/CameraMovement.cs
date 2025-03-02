@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
         {
             ResetCameraPosition();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0)&&shoot.isGunCold)
+        if (Input.GetKeyDown(KeyCode.Mouse0)&&shoot.isGunCold&&shoot.shooting)
         {
             StartCoroutine(CameraShake(0.1f, 0.6f));
         }

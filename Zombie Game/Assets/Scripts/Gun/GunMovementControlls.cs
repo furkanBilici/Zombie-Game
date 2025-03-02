@@ -51,7 +51,7 @@ public class GunMovementControlls : MonoBehaviour
 
     void ShotMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isRecoiling && Shoot.isGunCold)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isRecoiling && Shoot.isGunCold && Shoot.shooting)
         {
             StartCoroutine(RecoilEffect());
         }

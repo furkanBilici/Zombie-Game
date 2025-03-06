@@ -30,7 +30,7 @@ public class Reload : MonoBehaviour
             }
             else
             {
-                bulletInfo.bulletAmount = bulletInfo.bulletTotal;
+                bulletInfo.bulletAmount += bulletInfo.bulletTotal;
                 bulletInfo.bulletTotal = 0;
             }
         }

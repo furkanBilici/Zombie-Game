@@ -18,11 +18,15 @@ public class BulletSuply : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="player" && other.gameObject.tag != "killer")
+        if (other.gameObject.tag == "Player")
         {
             bulletInfo.bulletTotal += 10;
             Destroy(this.gameObject);
-            
+
         }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        
     }
 }

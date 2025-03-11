@@ -441,7 +441,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 289510056}
+  m_Father: {fileID: 324794121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286896039
 GameObject:
@@ -622,6 +622,39 @@ Transform:
   m_Children:
   - {fileID: 1076363467}
   - {fileID: 1333060162}
+  - {fileID: 324794121}
+  - {fileID: 224757575}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &324794120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324794121}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &324794121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324794120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 2039718514}
@@ -629,8 +662,7 @@ Transform:
   - {fileID: 1030642876}
   - {fileID: 243678366}
   - {fileID: 1198290075}
-  - {fileID: 224757575}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 289510056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328927771
 GameObject:
@@ -721,7 +753,7 @@ GameObject:
   - component: {fileID: 329834431}
   - component: {fileID: 329834430}
   - component: {fileID: 329834429}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zombie1 (5)
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -752,9 +784,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &329834430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,7 +1156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 289510056}
+  m_Father: {fileID: 324794121}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
@@ -1544,11 +1576,11 @@ Transform:
   m_GameObject: {fileID: 615208939}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.59, z: 10}
+  m_LocalPosition: {x: 0, y: 0.59, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 289510056}
+  m_Father: {fileID: 324794121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637997678
 GameObject:
@@ -1631,7 +1663,7 @@ GameObject:
   - component: {fileID: 652762811}
   - component: {fileID: 652762812}
   - component: {fileID: 652762813}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zombie1
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -1766,9 +1798,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &696493521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,7 +1814,7 @@ GameObject:
   - component: {fileID: 696493524}
   - component: {fileID: 696493523}
   - component: {fileID: 696493522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zombie1 (4)
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -1813,9 +1845,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &696493523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,7 +2187,7 @@ GameObject:
   - component: {fileID: 828587336}
   - component: {fileID: 828587335}
   - component: {fileID: 828587334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zombie1 (3)
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -2186,9 +2218,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &828587335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,7 +2372,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 289510056}
+  m_Father: {fileID: 324794121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030642871
 GameObject:
@@ -2475,7 +2507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 289510056}
+  m_Father: {fileID: 324794121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043180058
 GameObject:
@@ -2687,7 +2719,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 289510056}
+  m_Father: {fileID: 324794121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1217221734
 GameObject:
@@ -2702,7 +2734,7 @@ GameObject:
   - component: {fileID: 1217221737}
   - component: {fileID: 1217221736}
   - component: {fileID: 1217221735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zombie1 (1)
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -2733,9 +2765,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1217221736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2853,7 +2885,7 @@ GameObject:
   - component: {fileID: 1222411214}
   - component: {fileID: 1222411213}
   - component: {fileID: 1222411212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zombie1 (6)
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -2884,9 +2916,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1222411213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3334,7 +3366,7 @@ GameObject:
   - component: {fileID: 1692615149}
   - component: {fileID: 1692615148}
   - component: {fileID: 1692615147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zombie1 (2)
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -3365,9 +3397,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1692615148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3725,7 +3757,7 @@ Transform:
   m_LocalScale: {x: 15.515967, y: 0.01, z: 31.183779}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 289510056}
+  m_Father: {fileID: 324794121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2048489958
 GameObject:
